@@ -19,7 +19,7 @@
                 <td>{{$ticket->title}}</td>
                 <td>{{$ticket->description}}</td>
                 <td>{{$ticket->created_at}}</td>
-                <td>{{$ticket->status}}</td>
+                <td>@if ($ticket->status == 1) Open @else Close @endif </td>
             </tr>
         @endforeach
     </table>
