@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/',[\App\Http\Controllers\MainController::class,'index'])->name('home');
+Route::get('/search',[\App\Http\Controllers\MainController::class,'search'])->name('search');
 
 Route::resource('/ticket' , \App\Http\Controllers\TicketController::class)->middleware('auth');;
 Route::resource('/comment' , \App\Http\Controllers\CommentController::class)->middleware('auth');;

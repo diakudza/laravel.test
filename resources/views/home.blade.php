@@ -4,6 +4,14 @@
 
 @section('content')
     <h2>List of tickets</h2><br>
+
+    @auth()
+        <form action="/search">
+            <input type="text" value="{{old('searchText')}}"  name="searchText" placeholder="Search Text">
+            <button type="submit">search</button>
+        </form>
+    @endauth
+
     <table border="1" width="800">
         <tr>
             <td>id</td>
@@ -29,9 +37,9 @@
 
     <a href="{{ route('ticket.create')}}">New ticket</a><br>
     @auth()
-    @if(Auth::user()->is_admin==1)
-        <a href="{{ route('ticket.index')}}">Show all tickets</a><br>
-    @endif
+        @if(Auth::user()->is_admin==1)
+            <a href="{{ route('ticket.index')}}">Show all tickets</a><br>
+        @endif
     @endauth
 @endsection
 
